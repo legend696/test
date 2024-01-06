@@ -1,7 +1,12 @@
+local args = {
+    [1] = "x2 Speed"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("x2Event"):FireServer(unpack(args))
+
 getgenv().AutoPlaceUnit = true
 getgenv().AutoSkip = true
 getgenv().AutoFirstSkip = true
-getgenv().Auto3X = true
 
 spawn(function()
     if getgenv().AutoSkip == true then
@@ -10,16 +15,6 @@ spawn(function()
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Setting"):FireServer(unpack(args))
-    end
-end)
-
-spawn(function()
-    if getgenv().Auto3x == true then
-        local args = {
-            [1] = "x2 Speed"
-        }
-        
-        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("x2Event"):FireServer(unpack(args))
     end
 end)
 
