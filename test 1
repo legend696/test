@@ -1,0 +1,52 @@
+getgenv().AutoPlaceUnit = true
+getgenv().AutoSkip = true
+getgenv().AutoFirstSkip = true
+getgenv().Auto3X = true
+
+spawn(function()
+    while getgenv().AutoSkip == true do
+        local args = {
+            [1] = "AutoSkip"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Setting"):FireServer(unpack(args))
+        wait(999999)
+    end
+end)
+
+spawn(function()
+    while getgenv().Auto3x == true do
+        local args = {
+            [1] = "x2 Speed"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("x2Event"):FireServer(unpack(args))
+        wait(999999)
+    end
+end)
+
+spawn(function()
+    while getgenv().AutoFirstSkip == true do
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("SkipEvent"):FireServer()
+        wait(999999)
+    end
+end)
+
+spawn(function()
+    while getgenv().AutoPlaceUnit == true do
+        local args = {
+            [1] = "DragonEye",
+            [2] = CFrame.new(-94.7878646850586, 176.27499389648438, 992.6918334960938, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+            [3] = 1,
+            [4] = {
+                [1] = "1",
+                [2] = "1",
+                [3] = "1",
+                [4] = "1"
+            }
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("SpawnUnit"):InvokeServer(unpack(args))
+        wait()
+    end
+end)
