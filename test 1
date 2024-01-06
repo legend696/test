@@ -4,31 +4,28 @@ getgenv().AutoFirstSkip = true
 getgenv().Auto3X = true
 
 spawn(function()
-    while getgenv().AutoSkip == true do
+    if getgenv().AutoSkip == true then
         local args = {
             [1] = "AutoSkip"
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("Setting"):FireServer(unpack(args))
-        wait(999999)
     end
 end)
 
 spawn(function()
-    while getgenv().Auto3x == true do
+    if getgenv().Auto3x == true then
         local args = {
             [1] = "x2 Speed"
         }
         
         game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("x2Event"):FireServer(unpack(args))
-        wait(999999)
     end
 end)
 
 spawn(function()
-    while getgenv().AutoFirstSkip == true do
+    if getgenv().AutoFirstSkip == true then
         game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("SkipEvent"):FireServer()
-        wait(999999)
     end
 end)
 
